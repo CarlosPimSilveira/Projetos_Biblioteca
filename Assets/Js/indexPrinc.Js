@@ -1,5 +1,4 @@
 const btnTema = document.querySelector('.btnTema');
-
 btnTema.addEventListener('click', mudarTema);
 
 function mudarTema() {
@@ -10,4 +9,8 @@ function mudarTema() {
     } else {
         btnTema.innerText = '🌞';
     }
+}
+
+function pesquisar() {
+    console.log('teste')
 }
