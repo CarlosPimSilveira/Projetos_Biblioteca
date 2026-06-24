@@ -13,7 +13,11 @@ function mudarTema() {
 
 let livros = [
     {
-        titulo: "O Hobbit"
+        id: 1,
+        titulo: "O Hobbit",
+        autor: 'J. R. R. Tolkien',
+        emprestado: 1, // 1:sim 0:não
+        qtd: 1
     }
 ];
 
@@ -41,8 +45,9 @@ function pesquisar() {
 
 function criaResposta(resultado, txtLivro) {
     if (resultado) {
-        p.innerText = resultado.titulo;
+        p.innerHTML = `<strong>id:</strong> ${resultado.id} livro:${resultado.titulo} autor:${resultado.autor}`;
     } else {
-        p.innerText = `${txtLivro.value} não encontrado!`;
+        p.innerHTML = `${txtLivro.value} não encontrado!`;
     }
+    console.log(resultado.titulo, resultado.id)
 }
