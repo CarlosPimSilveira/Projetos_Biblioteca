@@ -19,30 +19,37 @@ let livros = [
 
 function pesquisar() {
     const txtLivro = document.querySelector('.txtLivro')
-    const livro = {
-        titulo: txtLivro.value
+
+    const resultado = livros.find( livro => livro.titulo.toLocaleLowerCase() === txtLivro.value);
+
+    if (resultado) {
+        criaResposta(true, txtLivro)
+    } else {
+        criaResposta(false, txtLivro)
     }
 
-    livros.find( livro => livro.toLowerCase() === livros.titulo  ) 
     txtLivro.value = '';
     txtLivro.focus()
-    console.log(livro)
-    
-    criaResposta()
 }
 
-//const pessoasComNomeGrande = pessoas.filter(obj => obj.nome.length >= 5)
+// Pega elementos
+const divPrin = document.querySelector('.divPrinc')
+// Cria elementos
+const divResp = document.createElement('div')
+const p = document.createElement('p')
 
-function criaResposta() {
-    // Pega elementos
-    const divPrin = document.querySelector('.divPrinc')
-    // Cria elementos
-    const divResp = document.createElement('div')
-    const p = document.createElement('p')
+function criaResposta(valor, txtLivro) {
+    divResp.innerText = ''
 
-
-    divResp.classList.add('divResp')
-    divPrin.appendChild(divResp)
-    p.innerText = livros.value
-    divResp.appendChild(p)
+    if (valor === true) {
+        divResp.classList.add('divResp')
+        divPrin.appendChild(divResp)
+        p.innerText = livros.value
+        divResp.appendChild(p)
+    } else {
+        divResp.classList.add('divResp')
+        divPrin.appendChild(divResp)
+        p.innerText = `${txtLivro.value} não encontrado!`
+        divResp.appendChild(p)
+    }
 }
