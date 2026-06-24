@@ -45,7 +45,19 @@ function pesquisar() {
 
 function criaResposta(resultado, txtLivro) {
     if (resultado) {
-        p.innerHTML = `<strong>id:</strong> ${resultado.id} livro:${resultado.titulo} autor:${resultado.autor}`;
+        let emprestado = ''
+        if (resultado.emprestado === 1) {
+            emprestado = 'Emprestado'
+        } else {
+            emprestado = 'Disponivel'
+        }
+        p.innerHTML = `
+            <div class="cardLivro">
+                <p><strong>ID:</strong> ${resultado.id}</p>
+                <p><strong>Livro:</strong> ${resultado.titulo}</p>
+                <p><strong>Autor:</strong> ${resultado.autor}</p>
+                <p><strong>Status:</strong> ${resultado.emprestado === 1 ? 'Emprestado' : 'Disponível'}</p>
+            </div>`;
     } else {
         p.innerHTML = `${txtLivro.value} não encontrado!`;
     }
