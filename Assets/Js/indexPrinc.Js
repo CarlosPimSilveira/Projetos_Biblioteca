@@ -1,6 +1,9 @@
+// Conecta ao outro js!
+import { livros } from './controleLivros.js';
+
+// Faz a mudança de tema!
 const btnTema = document.querySelector('.btnTema');
 btnTema.addEventListener('click', mudarTema);
-
 function mudarTema() {
     document.body.classList.toggle('dark');
 
@@ -11,22 +14,22 @@ function mudarTema() {
     }
 }
 
-import { livros } from './controleLivros.js';
-
-console.log(livros);
-
+// Cria ou conecta as divs e p
 const divPrin = document.querySelector('.divPrinc');
 const divResp = document.createElement('div');
-divResp.classList.add('divResp');
-
 const p = document.createElement('p');
+
+// Adiciona elas ao seus respectivos pais!
+divResp.classList.add('divResp');
 divResp.appendChild(p);
 divPrin.appendChild(divResp);
 
+// "ouvindo" o evento!
 const btnPesquisar = document.querySelector('.Enviar');
-
 btnPesquisar.addEventListener('click', pesquisar);
 
+// Aqui pega o valor digitado usando o tolowercase para caso tenha letras maiusculas ou minusculas.
+// busca no controleLivro.js o titulo do livro e compara com a informação digitada
 function pesquisar() {
     const txtLivro = document.querySelector('.txtLivro');
     const valorBusca = txtLivro.value.toLowerCase();
@@ -41,6 +44,7 @@ function pesquisar() {
     txtLivro.focus();
 }
 
+// da a resposta se o livro ta ou não cadastrado 
 function criaResposta(resultado, txtLivro) {
     if (resultado) {
         let emprestado = ''
