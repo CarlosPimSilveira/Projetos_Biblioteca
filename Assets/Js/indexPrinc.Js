@@ -11,6 +11,16 @@ function mudarTema() {
     }
 }
 
+let livros = [];
+
 function pesquisar() {
-    console.log('teste')
+    const txtLivro = document.querySelector('.txtLivro')
+    const livro = {
+        titulo: txtLivro.value
+    }
+
+    livros.push( livro ) 
+    txtLivro.value = '';
+    txtLivro.focus()
+    console.log(livros)
 }
