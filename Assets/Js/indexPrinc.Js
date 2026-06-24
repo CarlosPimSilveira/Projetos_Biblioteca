@@ -11,15 +11,9 @@ function mudarTema() {
     }
 }
 
-let livros = [
-    {
-        id: 1,
-        titulo: "O Hobbit",
-        autor: 'J. R. R. Tolkien',
-        emprestado: 1, // 1:sim 0:não
-        qtd: 1
-    }
-];
+import { livros } from './controleLivros.js';
+
+console.log(livros);
 
 const divPrin = document.querySelector('.divPrinc');
 const divResp = document.createElement('div');
@@ -28,6 +22,10 @@ divResp.classList.add('divResp');
 const p = document.createElement('p');
 divResp.appendChild(p);
 divPrin.appendChild(divResp);
+
+const btnPesquisar = document.querySelector('.Enviar');
+
+btnPesquisar.addEventListener('click', pesquisar);
 
 function pesquisar() {
     const txtLivro = document.querySelector('.txtLivro');
@@ -61,5 +59,4 @@ function criaResposta(resultado, txtLivro) {
     } else {
         p.innerHTML = `${txtLivro.value} não encontrado!`;
     }
-    console.log(resultado.titulo, resultado.id)
 }
