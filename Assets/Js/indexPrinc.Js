@@ -17,39 +17,32 @@ let livros = [
     }
 ];
 
+const divPrin = document.querySelector('.divPrinc');
+const divResp = document.createElement('div');
+divResp.classList.add('divResp');
+
+const p = document.createElement('p');
+divResp.appendChild(p);
+divPrin.appendChild(divResp);
+
 function pesquisar() {
-    const txtLivro = document.querySelector('.txtLivro')
+    const txtLivro = document.querySelector('.txtLivro');
+    const valorBusca = txtLivro.value.toLowerCase();
 
-    const resultado = livros.find( livro => livro.titulo.toLocaleLowerCase() === txtLivro.value);
+    const resultado = livros.find(livro =>
+        livro.titulo.toLowerCase() === valorBusca
+    );
 
-    if (resultado) {
-        criaResposta(true, txtLivro)
-    } else {
-        criaResposta(false, txtLivro)
-    }
+    criaResposta(resultado, txtLivro);
 
     txtLivro.value = '';
-    txtLivro.focus()
+    txtLivro.focus();
 }
 
-// Pega elementos
-const divPrin = document.querySelector('.divPrinc')
-// Cria elementos
-const divResp = document.createElement('div')
-const p = document.createElement('p')
-
-function criaResposta(valor, txtLivro) {
-    divResp.innerText = ''
-
-    if (valor === true) {
-        divResp.classList.add('divResp')
-        divPrin.appendChild(divResp)
-        p.innerText = livros.value
-        divResp.appendChild(p)
+function criaResposta(resultado, txtLivro) {
+    if (resultado) {
+        p.innerText = resultado.titulo;
     } else {
-        divResp.classList.add('divResp')
-        divPrin.appendChild(divResp)
-        p.innerText = `${txtLivro.value} não encontrado!`
-        divResp.appendChild(p)
+        p.innerText = `${txtLivro.value} não encontrado!`;
     }
 }
