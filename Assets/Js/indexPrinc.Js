@@ -76,18 +76,13 @@ btnCadLivro.addEventListener('click', () => {
     window.location.href = 'cadLivro.html';
 });
 
-// Chama principal
-const btnpagPrinc = document.querySelector('.btnpagPrinc')
-btnpagPrinc.addEventListener('click', () => {
-    window.location.href = 'pagPrinc.html';
-});
-
 const input = document.querySelector('.txtLivro');
 const sugestoes = document.querySelector('.sugestoes');
 
 input.addEventListener('input', mostrarSugestoes);
 
 function mostrarSugestoes() {
+    console.log('teste')
     const valor = input.value.toLowerCase();
 
     if (valor === '') {
