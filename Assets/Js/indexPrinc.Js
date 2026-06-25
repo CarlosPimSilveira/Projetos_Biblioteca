@@ -1,7 +1,12 @@
 // Conecta ao outro js!
 import { livros } from './controleLivros.js';
 
+// Conecta para uso de mudança de tema
+import { initTema } from './comandosGlobais.js';
+initTema();
+
 // Faz a mudança de tema!
+/*
 const btnTema = document.querySelector('.btnTema');
 btnTema.addEventListener('click', mudarTema);
 function mudarTema() {
@@ -13,7 +18,7 @@ function mudarTema() {
         btnTema.innerText = '🌞';
     }
 }
-
+*/
 // Cria ou conecta as divs e p
 const divPrin = document.querySelector('.divPrinc');
 const divResp = document.createElement('div');
