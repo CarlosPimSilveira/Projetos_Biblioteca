@@ -51,7 +51,7 @@ body {
     font-size: 1rem;
 }
 
-.btnCadastro {
+.btnCadLivro {
     padding: 12px 22px;
     border: none;
     border-radius: 8px;
@@ -63,7 +63,7 @@ body {
     transition: .25s;
 }
 
-.btnCadastro:hover {
+.btnCadLivro:hover {
     background: #4338ca;
     transform: translateY(-2px);
 }
