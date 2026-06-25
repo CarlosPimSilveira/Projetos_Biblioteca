@@ -63,6 +63,11 @@ body {
     transition: .25s;
 }
 
+.btnCadastro:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+}
+
 body.dark .divCadCentro {
     background: #242424;
     border: 1px solid #444;
