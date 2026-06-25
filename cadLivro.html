@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Livro</title>
     <link rel="stylesheet" href="Assets/Css/style.css">
+    <link rel="stylesheet" href="Assets/Css/styleCadLivro.css">
 </head>
 <body>
     <div class="divBar">
         <h2 class="logo">📚 Biblioteca</h2>
-
         <div class="divButtons">
             <button class="btnCadastro">Cadastro</button>
             <button class="btnpagPrinc"onclick="window.location.href='pagPrinc.html'">Principal</button>
-            <button class="btnTema">🌞</button>
+            <button class="btnTema">🌞</button>            
         </div>
+    </div>
+    <div class="divCad">
+        <div class="divCadCentro">
+            <p class="pCadLivro">Id:</p>
+            <input type="text" class="txtId">
+            <p class="pCadLivro">Titulo Livro:<input type="text" class="txtTituloLivro" placeholder="Digite titulo do livro"></p>
+            <p class="pCadLivro">Autor:<input type="text" class="txtAutorLivro" placeholder="Digite o autor"></p>
+            <p class="pCadLivro">Quantidade:<input type="text" class="txtQtdLivro" placeholder="Digite a quantidade"></p>
+        </div>     
     </div>
 
     <script type="module" src="Assets/Js/indexPrinc.js"></script>
