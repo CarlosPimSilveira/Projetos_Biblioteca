@@ -6,16 +6,26 @@ import { initTema } from './comandosGlobais.js';
 initTema();
 
 const btnCadastro = document.querySelector('.btnCadLivro');
-const txtId = document.querySelector('.txtId');
+const btnNovoLivro = document.querySelector('.btnNovoLivro')
 
-const ultimoID = Math.max(...livros.map(livro => livro.id)) + 1;
-txtId.value = ultimoID;
+const txtId = document.querySelector('.txtId');
 txtId.disabled = true;
+btnCadastro.disabled = true;
+
+btnNovoLivro.addEventListener('click', cadNovoLivro)
+function cadNovoLivro() {
+    btnCadastro.disabled = false;
+    btnNovoLivro.disabled = true;
+    const ultimoID = Math.max(...livros.map(livro => livro.id)) + 1;
+    txtId.value = ultimoID;
+}
 
 btnCadastro.addEventListener('click', cadastrar);
-
 function cadastrar() {
-    console.log('teste');
+    btnNovoLivro.disabled = false;
+    btnCadastro.disabled = true;
+
+    txtId.value = ''
 }
 
 
