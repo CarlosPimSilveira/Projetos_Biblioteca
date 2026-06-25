@@ -179,3 +179,31 @@ body.dark .divResp {
     color: #fff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .35);
 }
+
+body.dark .sugestoes {
+    background: #242424;
+    color: #fff;
+}
+
+.sugestoes {
+    width: 380px;
+    background: white;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    overflow: hidden;
+}
+
+.itemSugestao {
+    padding: 10px;
+    cursor: pointer;
+}
+
+body.dark .itemSugestao:hover {
+    background: #4f46e5;
+}
+
+.itemSugestao:hover {
+    background: #7b82ff;
+    color: white;
+}

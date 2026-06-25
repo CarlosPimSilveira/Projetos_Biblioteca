@@ -64,3 +64,52 @@ function criaResposta(resultado, txtLivro) {
         p.innerHTML = `${txtLivro.value} não encontrado!`;
     }
 }
+
+// Chama a cadLivro
+const btnCadLivro = document.querySelector('.btnCadLivro');
+btnCadLivro.addEventListener('click', () => {
+    window.location.href = 'cadLivro.html';
+});
+
+// Chama principal
+const btnpagPrinc = document.querySelector('.btnpagPrinc')
+btnpagPrinc.addEventListener('click', () => {
+    window.location.href = 'pagPrinc.html';
+});
+
+const input = document.querySelector('.txtLivro');
+const sugestoes = document.querySelector('.sugestoes');
+
+input.addEventListener('input', mostrarSugestoes);
+
+function mostrarSugestoes() {
+    const valor = input.value.toLowerCase();
+
+    if (valor === '') {
+        sugestoes.innerHTML = '';
+        return;
+    }
+
+    const filtrados = livros.filter(livro =>
+        livro.titulo.toLowerCase().includes(valor)
+    );
+
+    renderSugestoes(filtrados);
+}
+
+function renderSugestoes(lista) {
+    sugestoes.innerHTML = '';
+
+    lista.forEach(livro => {
+        const div = document.createElement('div');
+        div.classList.add('itemSugestao');
+        div.innerText = livro.titulo;
+
+        div.addEventListener('click', () => {
+            input.value = livro.titulo;
+            sugestoes.innerHTML = '';
+        });
+
+        sugestoes.appendChild(div);
+    });
+}
