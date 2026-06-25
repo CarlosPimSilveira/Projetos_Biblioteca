@@ -70,12 +70,6 @@ function criaResposta(resultado, txtLivro) {
     }
 }
 
-// Chama a cadLivro
-const btnCadLivro = document.querySelector('.btnCadLivro');
-btnCadLivro.addEventListener('click', () => {
-    window.location.href = 'cadLivro.html';
-});
-
 const input = document.querySelector('.txtLivro');
 const sugestoes = document.querySelector('.sugestoes');
 

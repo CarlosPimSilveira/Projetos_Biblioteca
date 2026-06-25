@@ -5,11 +5,9 @@ import { livros } from './controleLivros.js';
 import { initTema } from './comandosGlobais.js';
 initTema();
 
-
-const btnCadastro = document.querySelector('.Cadastro');
+const btnCadastro = document.querySelector('.btnCadastro');
 btnCadastro.addEventListener('click', cadastrar);
 const txtId = document.querySelector('.txtId')
-
 
 function cadastrar() {
     console.log('teste')
