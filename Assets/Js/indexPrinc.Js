@@ -1,7 +1,6 @@
 // Conecta ao outro js!
 import { obterLivros } from './controleLivros.js';
 
-
 let livros = obterLivros();
 
 // Conecta para uso de mudança de tema
