@@ -99,6 +99,7 @@ function excluirLivro() {
         cardLivro.innerHTML = ''
         localStorage.setItem("livros", JSON.stringify(livros));
     }
+    btnExcluir.disabled = true;
 }
 
 const input = document.querySelector('.txtLivro');
