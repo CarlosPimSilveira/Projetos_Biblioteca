@@ -1,5 +1,7 @@
 // Conecta ao outro js!
-import { livros } from './controleLivros.js';
+import { obterLivros, salvarLivros } from './controleLivros.js';
+
+let livros = obterLivros();
 
 // Conecta para uso de mudança de tema
 import { initTema } from './comandosGlobais.js';
@@ -62,6 +64,7 @@ function cadastrar() {
 
 function adicionaLivro(novoLivro) {
     livros.push(novoLivro);
+    salvarLivros(livros);
 }
 
 function limpaCampos() {

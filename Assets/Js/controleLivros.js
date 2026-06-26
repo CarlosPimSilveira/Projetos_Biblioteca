@@ -1,4 +1,4 @@
-export const livros = [
+const livrosPadrao = [
     {
         id: 1,
         titulo: "O Hobbit",
@@ -70,3 +70,19 @@ export const livros = [
         qtd: 2
     }
 ];
+
+export function obterLivros() {
+    const dados = localStorage.getItem("livros");
+
+    if (dados) {
+        return JSON.parse(dados);
+    }
+
+    localStorage.setItem("livros", JSON.stringify(livrosPadrao));
+
+    return livrosPadrao;
+}
+
+export function salvarLivros(livros) {
+    localStorage.setItem("livros", JSON.stringify(livros));
+}

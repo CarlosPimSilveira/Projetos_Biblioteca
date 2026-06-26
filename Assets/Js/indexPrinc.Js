@@ -1,5 +1,7 @@
 // Conecta ao outro js!
-import { livros } from './controleLivros.js';
+import { obterLivros } from './controleLivros.js';
+
+let livros = obterLivros();
 
 // Conecta para uso de mudança de tema
 import { initTema } from './comandosGlobais.js';
@@ -36,6 +38,8 @@ btnPesquisar.addEventListener('click', pesquisar);
 // Aqui pega o valor digitado usando o tolowercase para caso tenha letras maiusculas ou minusculas.
 // busca no controleLivro.js o titulo do livro e compara com a informação digitada
 function pesquisar() {
+    livros = obterLivros();
+
     const txtLivro = document.querySelector('.txtLivro');
     const valorBusca = txtLivro.value.toLowerCase();
 
@@ -76,6 +80,8 @@ const sugestoes = document.querySelector('.sugestoes');
 input.addEventListener('input', mostrarSugestoes);
 
 function mostrarSugestoes() {
+    livros = obterLivros();
+
     const valor = input.value.toLowerCase();
 
     if (valor === '') {
