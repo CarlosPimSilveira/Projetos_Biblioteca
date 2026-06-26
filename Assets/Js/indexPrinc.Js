@@ -1,6 +1,7 @@
 // Conecta ao outro js!
 import { obterLivros } from './controleLivros.js';
 
+
 let livros = obterLivros();
 
 // Conecta para uso de mudança de tema
@@ -25,15 +26,23 @@ function mudarTema() {
 const divPrin = document.querySelector('.divPrinc');
 const divResp = document.createElement('div');
 const p = document.createElement('p');
+const btnExcluir = document.createElement('button')
+
+btnExcluir.classList.add('btnExcluirLivro') 
+btnExcluir.innerText = 'Excluir'
+btnExcluir.disabled = true;
 
 // Adiciona elas ao seus respectivos pais!
 divResp.classList.add('divResp');
 divResp.appendChild(p);
+divResp.appendChild(btnExcluir)
 divPrin.appendChild(divResp);
 
 // "ouvindo" o evento!
 const btnPesquisar = document.querySelector('.Enviar');
 btnPesquisar.addEventListener('click', pesquisar);
+
+btnExcluir.addEventListener('click', excluirLivro)
 
 // Aqui pega o valor digitado usando o tolowercase para caso tenha letras maiusculas ou minusculas.
 // busca no controleLivro.js o titulo do livro e compara com a informação digitada
@@ -64,13 +73,29 @@ function criaResposta(resultado, txtLivro) {
         }
         p.innerHTML = `
             <div class="cardLivro">
-                <p><strong>ID:</strong> ${resultado.id}</p>
+                <p class="idLivroExcluir"><strong>ID:</strong> ${resultado.id}</p>
                 <p><strong>Livro:</strong> ${resultado.titulo}</p>
                 <p><strong>Autor:</strong> ${resultado.autor}</p>
                 <p><strong>Status:</strong> ${resultado.emprestado === 1 ? 'Emprestado' : 'Disponível'}</p>
             </div>`;
+            btnExcluir.disabled = false;
     } else {
         p.innerHTML = `${txtLivro.value} não encontrado!`;
+    }
+}
+//const idLivroExcluir = document.querySelector('.idLivroExcluir')
+function excluirLivro() {
+    const idLivroExcluir = Number(
+    document.querySelector('.idLivroExcluir')
+        .innerText
+        .replace('ID: ', '')
+    )
+
+    const resultado = livros.findIndex(livro => livro.id === idLivroExcluir)
+
+    if (resultado >= 0) {
+        livros.splice(resultado, 1)
+        localStorage.setItem("livros", JSON.stringify(livros));
     }
 }
 
