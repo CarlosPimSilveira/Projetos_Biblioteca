@@ -76,7 +76,6 @@ const sugestoes = document.querySelector('.sugestoes');
 input.addEventListener('input', mostrarSugestoes);
 
 function mostrarSugestoes() {
-    console.log('teste')
     const valor = input.value.toLowerCase();
 
     if (valor === '') {
