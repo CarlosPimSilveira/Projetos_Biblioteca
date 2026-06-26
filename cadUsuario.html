@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="/Assets/Css/style.css">
+    <link rel="stylesheet" href="Assets/Css/styleCadUsuario.css">
 </head>
 <body>
     <div class="divBar">
@@ -14,6 +15,18 @@
             <button class="btnpagPrinc"onclick="window.location.href='pagPrinc.html'">Principal</button>
             <button class="btnCadLivro"onclick="window.location.href='cadlivro.html'">Cad. Livro</button>
             <button class="btnTema">🌞</button>
+        </div>
+    </div>
+
+    <div class="divCadUsuario">
+        <div class="divCadUsuarioCentro">
+            <p>Id:<input type="text" class="txtIdUsuario"></p>
+            <p>Nome:<input type="text" class="txtNomeUsuario"></p>
+            <p>Tel:<input type="tel" id="txtTelUsuario" class="txtTelUsuario" placeholder="(00) 00000-0000" maxlength="15"></p>
+            <p>Data de Nascimento:<input type="date" id="txtDataNascimento" class="txtDataNascimento"></p>
+            <p><input type="text" disabled class="txtIdadeUsuario"></p>
+            <button class="btnNovoUsuario">Novo Usuario</button>
+            <button class="btnCadUsuario">Cadastrar</button>
         </div>
     </div>
 
