@@ -92,9 +92,11 @@ function excluirLivro() {
     )
 
     const resultado = livros.findIndex(livro => livro.id === idLivroExcluir)
+    const cardLivro = document.querySelector('.cardLivro')
 
     if (resultado >= 0) {
         livros.splice(resultado, 1)
+        cardLivro.innerHTML = ''
         localStorage.setItem("livros", JSON.stringify(livros));
     }
 }
