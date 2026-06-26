@@ -11,3 +11,20 @@ tel.addEventListener('input', (e) => {
     value = value.replace(/(\d{5})(\d)/, '$1-$2');
     e.target.value = value;
 });
+
+const txtIdUsuario = document.querySelector('.txtIdUsuario')
+txtIdUsuario.disabled = true;
+const txtNomeUsuario = document.querySelector('.txtNomeUsuario')
+const btnCadUsuario = document.querySelector('.btnCadUsuario')
+
+function ativaCampos() {
+    txtNomeUsuario.disabled = false
+    btnCadUsuario.disabled = false;
+}
+
+function desativaCampos() {
+    txtNomeUsuario.disabled = true
+    btnCadUsuario.disabled = true;
+}
+
+desativaCampos()
