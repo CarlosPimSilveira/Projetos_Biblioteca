@@ -34,7 +34,10 @@ function desativaCampos() {
 }
 
 function limpaCampos() {
-
+    txtNomeUsuario.value = ''
+    btnCadUsuario.value = ''
+    txtTelUsuario.value = ''
+    txtDataNascimento.value = ''
 }
 
 desativaCampos()
@@ -50,7 +53,7 @@ function novoCadastroUsuario() {
 
 function salvarCadastro() {
     btnNovoUsuario.disabled = false
-    
+
     limpaCampos()
     desativaCampos()
 }
