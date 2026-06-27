@@ -10,6 +10,11 @@ const txtIdUsuario = document.querySelector('.txtIdUsuario')
 const txtTelUsuario = document.querySelector('.txtTelUsuario')
 const txtDataNascimento = document.querySelector('.txtDataNascimento')
 
+btnNovoUsuario.addEventListener('click', novoCadastroUsuario)
+btnCadUsuario.addEventListener('click', salvarCadastro)
+
+desativaCampos()
+
 //Aplica mascara para o telefone!
 tel.addEventListener('input', (e) => {
     let value = e.target.value;
@@ -39,11 +44,6 @@ function limpaCampos() {
     txtTelUsuario.value = ''
     txtDataNascimento.value = ''
 }
-
-desativaCampos()
-
-btnNovoUsuario.addEventListener('click', novoCadastroUsuario)
-btnCadUsuario.addEventListener('click', salvarCadastro)
 
 function novoCadastroUsuario() {
     ativaCampos()
