@@ -31,8 +31,13 @@ desativaCampos()
 
 const btnNovoUsuario = document.querySelector('.btnNovoUsuario')
 btnNovoUsuario.addEventListener('click', novoCadastroUsuario)
+btnCadUsuario.addEventListener('click', salvarCadastro)
 
 function novoCadastroUsuario() {
     ativaCampos()
     txtNomeUsuario.focus()
+}
+
+function salvarCadastro() {
+    desativaCampos()
 }
