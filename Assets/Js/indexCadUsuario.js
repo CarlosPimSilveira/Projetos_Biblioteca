@@ -9,9 +9,11 @@ const btnCadUsuario = document.querySelector('.btnCadUsuario')
 const txtIdUsuario = document.querySelector('.txtIdUsuario')
 const txtTelUsuario = document.querySelector('.txtTelUsuario')
 const txtDataNascimento = document.querySelector('.txtDataNascimento')
+const txtIdadeUsuario = document.querySelector('.txtIdadeUsuario')
 
 btnNovoUsuario.addEventListener('click', novoCadastroUsuario)
 btnCadUsuario.addEventListener('click', salvarCadastro)
+txtDataNascimento.addEventListener("blur", calcIdade);
 
 desativaCampos()
 
@@ -23,6 +25,25 @@ tel.addEventListener('input', (e) => {
     value = value.replace(/(\d{5})(\d)/, '$1-$2');
     e.target.value = value;
 });
+
+function calcIdade() {
+    const hoje = new Date();
+    const nascimento = new Date(txtDataNascimento.value);
+
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+
+    const mesAtual = hoje.getMonth();
+    const mesNascimento = nascimento.getMonth();
+
+    if (
+        mesAtual < mesNascimento ||
+        (mesAtual === mesNascimento && hoje.getDate() < nascimento.getDate())
+    ) {
+        idade--;
+    }
+
+    txtIdadeUsuario.value = idade;
+}
 
 function ativaCampos() {
     txtNomeUsuario.disabled = false;
