@@ -7,6 +7,8 @@ const btnNovoUsuario = document.querySelector('.btnNovoUsuario')
 const txtNomeUsuario = document.querySelector('.txtNomeUsuario')
 const btnCadUsuario = document.querySelector('.btnCadUsuario')
 const txtIdUsuario = document.querySelector('.txtIdUsuario')
+const txtTelUsuario = document.querySelector('.txtTelUsuario')
+const txtDataNascimento = document.querySelector('.txtDataNascimento')
 
 //Aplica mascara para o telefone!
 tel.addEventListener('input', (e) => {
@@ -18,13 +20,21 @@ tel.addEventListener('input', (e) => {
 });
 
 function ativaCampos() {
-    txtNomeUsuario.disabled = false
+    txtNomeUsuario.disabled = false;
     btnCadUsuario.disabled = false;
+    txtTelUsuario.disabled = false;
+    txtDataNascimento.disabled = false;
 }
 
 function desativaCampos() {
-    txtNomeUsuario.disabled = true
+    txtNomeUsuario.disabled = true;
     btnCadUsuario.disabled = true;
+    txtTelUsuario.disabled = true;
+    txtDataNascimento.disabled = true;
+}
+
+function limpaCampos() {
+
 }
 
 desativaCampos()
@@ -40,5 +50,7 @@ function novoCadastroUsuario() {
 
 function salvarCadastro() {
     btnNovoUsuario.disabled = false
+    
+    limpaCampos()
     desativaCampos()
 }
