@@ -2,6 +2,7 @@
 import { initTema } from './comandosGlobais.js';
 initTema();
 
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const tel = document.querySelector('.txtTelUsuario');
 const btnNovoUsuario = document.querySelector('.btnNovoUsuario')
 const txtNomeUsuario = document.querySelector('.txtNomeUsuario')
@@ -29,9 +30,7 @@ tel.addEventListener('input', (e) => {
 function calcIdade() {
     const hoje = new Date();
     const nascimento = new Date(txtDataNascimento.value);
-
     let idade = hoje.getFullYear() - nascimento.getFullYear();
-
     const mesAtual = hoje.getMonth();
     const mesNascimento = nascimento.getMonth();
 
@@ -64,17 +63,40 @@ function limpaCampos() {
     btnCadUsuario.value = ''
     txtTelUsuario.value = ''
     txtDataNascimento.value = ''
+    txtIdadeUsuario.value = ''
 }
 
 function novoCadastroUsuario() {
-    ativaCampos()
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const ultimoID = usuarios.length > 0
+        ? Math.max(...usuarios.map(u => u.id)) + 1
+        : 1;
+
+    txtIdUsuario.value = ultimoID;
+
+    ativaCampos();
     btnNovoUsuario.disabled = true;
-    txtNomeUsuario.focus()
+    txtNomeUsuario.focus();
 }
 
 function salvarCadastro() {
-    btnNovoUsuario.disabled = false
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    limpaCampos()
-    desativaCampos()
+    const novoUsuario = {
+        id: Number(txtIdUsuario.value),
+        nome: txtNomeUsuario.value,
+        telefone: txtTelUsuario.value,
+        dataNascimento: txtDataNascimento.value,
+        idade: Number(txtIdadeUsuario.value)
+    };
+
+    usuarios.push(novoUsuario);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    console.log("Usuário salvo com sucesso!", novoUsuario);
+
+    btnNovoUsuario.disabled = false;
+
+    limpaCampos();
+    desativaCampos();
 }

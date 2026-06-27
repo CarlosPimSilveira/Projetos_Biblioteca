@@ -9,7 +9,6 @@ initTema();
 
 const btnCadastro = document.querySelector('.btnCadLivro');
 const btnNovoLivro = document.querySelector('.btnNovoLivro');
-
 const txtTituloLivro = document.querySelector('.txtTituloLivro')
 const txtId = document.querySelector('.txtId');
 const txtAutorLivro = document.querySelector('.txtAutorLivro')
