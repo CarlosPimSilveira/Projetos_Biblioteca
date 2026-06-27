@@ -2,8 +2,13 @@
 import { initTema } from './comandosGlobais.js';
 initTema();
 
-//Aplica mascara para o telefone!
 const tel = document.querySelector('.txtTelUsuario');
+const btnNovoUsuario = document.querySelector('.btnNovoUsuario')
+const txtNomeUsuario = document.querySelector('.txtNomeUsuario')
+const btnCadUsuario = document.querySelector('.btnCadUsuario')
+const txtIdUsuario = document.querySelector('.txtIdUsuario')
+
+//Aplica mascara para o telefone!
 tel.addEventListener('input', (e) => {
     let value = e.target.value;
     value = value.replace(/\D/g, ''); // remove tudo que não for número
@@ -11,11 +16,6 @@ tel.addEventListener('input', (e) => {
     value = value.replace(/(\d{5})(\d)/, '$1-$2');
     e.target.value = value;
 });
-
-const txtIdUsuario = document.querySelector('.txtIdUsuario')
-txtIdUsuario.disabled = true;
-const txtNomeUsuario = document.querySelector('.txtNomeUsuario')
-const btnCadUsuario = document.querySelector('.btnCadUsuario')
 
 function ativaCampos() {
     txtNomeUsuario.disabled = false
@@ -29,15 +29,16 @@ function desativaCampos() {
 
 desativaCampos()
 
-const btnNovoUsuario = document.querySelector('.btnNovoUsuario')
 btnNovoUsuario.addEventListener('click', novoCadastroUsuario)
 btnCadUsuario.addEventListener('click', salvarCadastro)
 
 function novoCadastroUsuario() {
     ativaCampos()
+    btnNovoUsuario.disabled = true;
     txtNomeUsuario.focus()
 }
 
 function salvarCadastro() {
+    btnNovoUsuario.disabled = false
     desativaCampos()
 }
